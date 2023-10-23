@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TaskAdd from "./TaskAdd";
 import TaskList from "./TaskList";
 
 function Card() {
   const [tasks, setTasks] = useState([]);
 
+  useEffect(() => {
+    const storedTasks = localStorage.getItem("tasks");
+    if (storedTasks) {
+      setTasks(JSON.parse(storedTasks));
+    }
+  }, []);
+
   const addTask = (task) => {
-    setTasks([...tasks, task]);
+    const updatedTasks = [...tasks, task];
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
 
   return (
