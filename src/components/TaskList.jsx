@@ -5,7 +5,10 @@ function TaskList({ tasks }) {
     <div>
       <ul>
         {tasks.map((task, index) => (
-          <li key={index} className="bg-gray-100 p-2 rounded-md mb-2">
+          <li
+            key={index}
+            className="bg-slate-700 dark:bg-gray-100 text-gray-100 dark:text-slate-700 p-2 rounded-md mb-2"
+          >
             {task}
           </li>
         ))}
