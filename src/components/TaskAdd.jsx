@@ -21,6 +21,7 @@ function TaskAdd({ onAddTask }) {
             placeholder="Write a Task..."
             value={task}
             onChange={(e) => setTask(e.target.value)}
+            maxLength={25}
           />
           <button
             className="bg-indigo-500 text-white rounded-r-md p-2"
