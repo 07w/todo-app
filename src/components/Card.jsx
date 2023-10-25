@@ -18,11 +18,18 @@ function Card() {
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
 
+  const deleteTask = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks.splice(index, 1);
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  };
+
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="bg-slate-800 dark:bg-gray-200 p-4 rounded-lg shadow-md">
         <TaskAdd onAddTask={addTask} />
-        <TaskList tasks={tasks} />
+        <TaskList tasks={tasks} onDeleteTask={deleteTask} />
       </div>
     </div>
   );
